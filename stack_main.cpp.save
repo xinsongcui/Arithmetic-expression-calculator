@@ -1,0 +1,69 @@
+
+#include<iostream>
+#include "mystack.h"
+
+using namespace std;
+
+mystack::mystack(){
+	stack = new T[MAX_SIZE];
+	top = -1;
+}
+void mystack::push(T x){
+	stack[top+1] = x;
+	top++;
+}
+T mystack::top(){
+	return stack[top];
+}
+T mystack::pop(){
+	if(empty()){
+		return stack[top--];
+	}
+}
+bool mystack::empty(){
+	if(top<0){
+		top = -1;
+		return false;
+	}
+	else return true;
+}
+int mystack::size(){
+	return top;
+}
+int main(){
+	int flag;
+	string type;
+	cin >> type;
+	if(type == "int"){
+		mystack<int> mystack = new mystack<int>;
+	}
+	else if(type == "double"){
+		mystack<double> mystack = new mystack<double>;
+	}
+	else if(type == "char"){
+		mystack<char> mystack = new mystack<char>;
+	}
+	else if(type == "string"){
+		mystack<string> mystack = new mystack<string>;
+	}
+	string operation;
+	while(cin >> operation){
+		if(operation == "push"){
+			cin >>	mystack.value;
+			mystack.push(T mystack.value);
+		}
+		else if(operation == "pop"){
+			cout << mysatck.pop(); << endl;
+		}
+		else if(operation == "top"){
+			mystack.top();
+		}
+		else if(operation == "size"){
+			cout << mystack.size << endl;
+		}
+		else if(operation == "empty"){
+			mystack.empty();
+		}
+	}
+	return 0;
+}
